@@ -1,0 +1,8 @@
+.a:link {
+    color: #e33;
+    font-weight: bolder;
+    text-decoration: none;
+}
+.a:hover { color: #fff }
+
+.div:last-of-type { background: #555 }
