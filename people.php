@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Species</title>
+<title>People</title>
 <meta charset="utf-8">
 </head>
 <body>
