@@ -1,8 +1,21 @@
-.a:link {
+@charset "UTF-8";
+body { background-color: #111 }
+h1 { 
+    color: #ccc;
+    font-size: 5vw
+}
+a:link {
     color: #e33;
     font-weight: bolder;
     text-decoration: none;
+    font-size: 2.5vw;
+    margin-top: 3%;
+    margin-right: 3vw;
+    margin-left: 1vw;
 }
-.a:hover { color: #fff }
+a:hover { color: #fff }
 
-.div:last-of-type { background: #555 }
+.footer { 
+    background: #555;
+    height: 10vw
+}
