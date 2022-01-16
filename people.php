@@ -20,7 +20,7 @@ $conn = new mysqli($config['servername'], $config['username'], $config['password
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+echo "Connected successfully<br />";
 
 // Query
 $query = $conn->prepare("SELECT * FROM people where id=?");
@@ -28,6 +28,10 @@ $query->bind_param('i', $id);
 $query->execute();
 $result = $query->get_result()->fetch_assoc();
 
+if (empty($result)) {
+    echo ("Does not exist");
+    exit();
+}
 
 
 ?> 
@@ -39,10 +43,11 @@ $result = $query->get_result()->fetch_assoc();
 	
 		<?php 
 		if (file_exists("../img/" . $result['name'] . ".JPG")) {
+		    $b64img = base64_encode(file_get_contents("../img/" . $result['name'] . ".JPG"));
 		    echo ("
                 <tr>
                     <th>Appearance</th>
-                    <th><img src=" . "../img/" . $result['name'] . ".JPG" . "></img></th>
+                    <th><img src='data:image/png;base64,$b64img'></img></th>
                 </tr>
                 ");
 		}
