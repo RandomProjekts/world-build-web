@@ -35,45 +35,45 @@ if (empty($result)) {
 
 
 ?> 
-<table>
-	<tr>
-		<th>Name</th>
-		<th><?php echo ($result['name']); ?></th>
-	</tr>
+<div class="layout" role="main">
+	<div>
+		<p>Name</p>
+		<h1><?php echo ($result['name']); ?></h1>
+	</div>
 	
 		<?php 
 		if (file_exists("../img/" . $result['name'] . ".JPG")) {
 		    $b64img = base64_encode(file_get_contents("../img/" . $result['name'] . ".JPG"));
 		    echo ("
-                <tr>
-                    <th>Appearance</th>
-                    <th><img src='data:image/png;base64,$b64img'></img></th>
-                </tr>
+                <div>
+                    <p>Appearance</p>
+                    <div><img src='data:image/png;base64,$b64img'></img></div>
+                </div>
                 ");
 		}
 		?>
-	<tr>
-		<th>Gender</th>
-		<th><?php 
+	<div>
+		<p>Gender</p>
+		<p><?php 
 		if ($result['gender'] == 'f') {
 		  echo("Female");
 		} elseif ($result['gender'] == 'm') {
 		  echo("Male");
 		}
 		
-		?></th>
-	</tr>
-	<tr>
+		?></p>
+	</div>
+	<div>
 		<?php
 		if (!empty($result['age'])) {
 		    echo("
-                <th>Age</th>
-                <th>" . $result['age'] . " Years</th>"
+                <p>Age</p>
+                <p>" . $result['age'] . " Years</p>"
 		        );
 		  }
 		?>
-	</tr>
-</table>
+	</div>
+</div>
 
 <?php 
 $conn->close();

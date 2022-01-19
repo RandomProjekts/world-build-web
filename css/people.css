@@ -1,0 +1,14 @@
+.layout {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  /* This is better for small screens, once min() is better supported */
+  /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
+  gap: 1rem;
+  width: 100%;
+}
+
+.layout div  {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
