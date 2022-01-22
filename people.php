@@ -33,50 +33,80 @@ if (empty($result)) {
     exit();
 }
 
-
 ?> 
-<div class="layout" role="main">
-	<div>
-		<p>Name</p>
+<table role="main">
+	<caption>
 		<h1><?php echo ($result['name']); ?></h1>
-	</div>
+	</caption>
 	
-		<?php 
+	<?php 
 		if (file_exists("../img/" . $result['name'] . ".JPG")) {
 		    $b64img = base64_encode(file_get_contents("../img/" . $result['name'] . ".JPG"));
 		    echo ("
-                <div>
-                    <p>Appearance</p>
-                    <div><img src='data:image/png;base64,$b64img'></img></div>
-                </div>
+                <tr>
+                    <th>Appearance</th>
+                    <td><img src='data:image/png;base64,$b64img'></img></td>
+                </tr>
                 ");
 		}
-		?>
-	<div>
-		<p>Gender</p>
-		<p><?php 
+	?>
+	<tr>
+		<th>Gender</th>
+		<td><?php 
 		if ($result['gender'] == 'f') {
 		  echo("Female");
 		} elseif ($result['gender'] == 'm') {
 		  echo("Male");
 		}
 		
-		?></p>
-	</div>
-	<div>
+		?></td>
+	</tr>
+	<tr>
 		<?php
 		if (!empty($result['age'])) {
 		    echo("
-                <p>Age</p>
-                <p>" . $result['age'] . " Years</p>"
+                <th>Age</th>
+                <td>" . $result['age'] . " Years</td>"
 		        );
 		  }
 		?>
-	</div>
-</div>
+	</tr>
+</table>
+</body>
 
-<?php 
+<?php
+/*  (optional) Main color of color sheme (appearance image) and version with alpha = 0 
+	variables are used for coloring the rows in table */
+if (!empty($result['themecolor'])) {
+	echo("
+	<style>
+		:root {
+			--rowcolor: " . $result['themecolor'] . ";
+			--rowcolor-transparent: " . $result['themecolor'] . "00;
+		}
+	</style>
+	");
+}
+
 $conn->close();
 ?>
-</body>
+
+<script>
+	// hide content of rows that are "higher" than 30% of the viewport width and show only preview
+	var data = Array.from(document.getElementsByTagName("td"));
+	data.forEach(function(td) {
+		let h = td.offsetHeight;
+		if (h / window.innerWidth > 0.3) {
+			td.classList.add("shorten");
+			// toggle full content or preview on click
+			td.addEventListener("click", (e) => {
+				var v = e.target
+				while (v.tagName != "TD") {
+					v = v.parentNode;
+				}
+				v.classList.toggle("shorten");
+			});
+		}
+	});
+</script>
 </html>
