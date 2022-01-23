@@ -2,6 +2,7 @@
 <head>
 <title>People</title>
 <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/people.css">
 </head>
 <body>
 <?php
@@ -76,7 +77,8 @@ if (empty($result)) {
 
 <?php
 /*  (optional) Main color of color sheme (appearance image) and version with alpha = 0 
-	variables are used for coloring the rows in table */
+	variables are used for coloring the rows in table
+	themecolor has to be a hex color string starting with a '#' */
 if (!empty($result['themecolor'])) {
 	echo("
 	<style>
