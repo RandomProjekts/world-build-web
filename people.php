@@ -1,31 +1,32 @@
 <html>
+	<?php
+	$conn = require ("./connection.php");
+	if (isset ( $_GET ['id'] )) {
+		$id = $_GET ['id'];
+	} else {
+		echo ("no person selected");
+		exit ();
+	}
+	
+	// Query
+	$query = $conn->prepare ( "SELECT * FROM people where id=?" );
+	$query->bind_param ( 'i', $id );
+	$query->execute ();
+	$result = $query->get_result ()->fetch_assoc ();
+	
+	if (empty ( $result )) {
+		echo ("Does not exist");
+		exit ();
+	}
+	
+	?> 
 	<head>
 		<title>People</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/people.css">
 	</head>
 	<body>
-		<?php
-		$conn = require ("./connection.php");
-		if (isset ( $_GET ['id'] )) {
-			$id = $_GET ['id'];
-		} else {
-			echo ("no person selected");
-			exit ();
-		}
 		
-		// Query
-		$query = $conn->prepare ( "SELECT * FROM people where id=?" );
-		$query->bind_param ( 'i', $id );
-		$query->execute ();
-		$result = $query->get_result ()->fetch_assoc ();
-		
-		if (empty ( $result )) {
-			echo ("Does not exist");
-			exit ();
-		}
-		
-		?> 
 		<table role="main">
 			<caption>
 				<h1><?php echo ($result['name']); ?></h1>
