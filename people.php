@@ -6,32 +6,23 @@
 </head>
 <body>
 <?php
-$config = require ("../config.php");
-
-if (isset($_GET['id'])) {
-   $id = $_GET['id'];
+$conn = require ("./connection.php");
+if (isset ( $_GET ['id'] )) {
+	$id = $_GET ['id'];
 } else {
-   echo("no person selected");
-   exit();
+	echo ("no person selected");
+	exit ();
 }
-// Create connection
-$conn = new mysqli($config['servername'], $config['username'], $config['password'], $config['DBname']);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully<br />";
 
 // Query
-$query = $conn->prepare("SELECT * FROM people where id=?");
-$query->bind_param('i', $id);
-$query->execute();
-$result = $query->get_result()->fetch_assoc();
+$query = $conn->prepare ( "SELECT * FROM people where id=?" );
+$query->bind_param ( 'i', $id );
+$query->execute ();
+$result = $query->get_result ()->fetch_assoc ();
 
-if (empty($result)) {
-    echo ("Does not exist");
-    exit();
+if (empty ( $result )) {
+	echo ("Does not exist");
+	exit ();
 }
 
 ?> 
