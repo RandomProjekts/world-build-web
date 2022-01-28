@@ -1,10 +1,12 @@
 <html>
+	<head>
 	<?php
 	$conn = require ("./connection.php");
 	if (isset ( $_GET ['id'] )) {
 		$id = $_GET ['id'];
 	} else {
 		echo ("no person selected");
+		echo ("<title>People</title>");
 		exit ();
 	}
 	
@@ -16,12 +18,12 @@
 	
 	if (empty ( $result )) {
 		echo ("Does not exist");
+		echo ("<title>People</title>");
 		exit ();
 	}
 	
-	?> 
-	<head>
-		<title>People</title>
+	?> 	
+		<title><?php echo ($result['name']); ?> - People</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/people.css">
 	</head>
