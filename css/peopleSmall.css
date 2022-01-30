@@ -1,0 +1,27 @@
+h1 {
+    font-size: 6vw;
+}
+  
+tr {
+    font-size: 2.5vw;
+    flex-direction: column;
+}
+  
+th {
+    padding-right: 3%;
+    width: 94%;
+}
+  
+td {
+    padding-left: 3%;
+    width: 94%;
+}
+  
+td.shorten {
+    max-height: 50vw;
+}
+  
+td.shorten::before {
+    width: 90%;
+    height: calc(50vw + 1px)
+}
