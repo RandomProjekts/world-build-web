@@ -26,6 +26,12 @@
 	?>
 	<title><?php echo ($result['name']); ?> - People</title>
 	<meta charset="utf-8">
+	<?php
+		if (file_exists("../img/" . $result['name'] . "_icon.JPG")) {
+			$b64img = base64_encode(file_get_contents("../img/" . $result['name'] . "_icon.JPG"));
+			echo ("<link rel='icon' href='data:image/png;base64,$b64img'>");
+		}
+		?>
 	<link rel="stylesheet" href="./css/people.css">
 	<link rel="stylesheet" href="./css/peopleSmall.css" media="all and (max-aspect-ratio: 3/5)">
 </head>
