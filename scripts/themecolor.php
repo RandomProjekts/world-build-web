@@ -1,5 +1,5 @@
 <?php
-include_once("./colorextract.php");
+include_once(__DIR__ . "/colorextract.php");
 
 // used for ligtening up color
 function luminance($hexcolor, $percent)

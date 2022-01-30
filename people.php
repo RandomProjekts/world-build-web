@@ -2,7 +2,7 @@
 
 <head>
 	<?php
-	$conn = require("./connection.php");
+	$conn = require(__DIR__ . "/connection.php");
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 	} else {
@@ -76,9 +76,9 @@
 <?php
 // Main color of color sheme (appearance image) and version with alpha = 0
 if (file_exists($imgpath)) {
-	include_once("./scripts/themecolor.php");
+	include_once(__DIR__ . "/scripts/themecolor.php");
 	if (empty($result['themecolor'])) {
-		$themecolor = findthemecolor("../" . $imgfile); // imgpath adjusted for colorextract script
+		$themecolor = findthemecolor(__DIR__ . "/" . $imgpath); // imgpath adjusted for colorextract script
 	} else {
 		$themecolor = adjustlightness($result['themecolor']);
 	}
