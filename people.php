@@ -27,8 +27,8 @@
 	<title><?php echo ($result['name']); ?> - People</title>
 	<meta charset="utf-8">
 	<?php
-		if (file_exists("../img/" . $result['name'] . "_icon.JPG")) {
-			$b64img = base64_encode(file_get_contents("../img/" . $result['name'] . "_icon.JPG"));
+		if (file_exists("../img/" . $result['name'] . "_icon.jpg")) {
+			$b64img = base64_encode(file_get_contents("../img/" . $result['name'] . "_icon.jpg"));
 			echo ("<link rel='icon' href='data:image/png;base64,$b64img'>");
 		}
 		?>
@@ -44,7 +44,7 @@
 		</caption>
 
 		<?php
-		$imgpath = "../img/" . $result['name'] . ".JPG";
+		$imgpath = "../img/" . $result['name'] . ".jpg";
 		if (file_exists($imgpath)) {
 			$b64img = base64_encode(file_get_contents($imgpath));
 			echo ("
