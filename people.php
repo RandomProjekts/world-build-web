@@ -67,15 +67,17 @@
 				?>
 			</td>
 		</tr>
-		<tr>
 			<?php
 			if (!empty($result['age'])) {
 				echo ("
-		                <th>Age</th>
-		                <td>" . $result['age'] . " Years</td>");
+				<tr>
+		                	<th>Age</th>
+		                	<td>" . $result['age'] . " Years</td>
+				</tr>
+				");
 			}
 			?>
-		</tr>
+		
 	</table>
 </body>
 
