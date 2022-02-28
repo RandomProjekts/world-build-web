@@ -1,5 +1,5 @@
 <?php
-$config = require ("../../config.php");
+$config = require (__DIR__ . "/../../config.php");
 // Create connection
 $conn = new mysqli ( $config ['servername'], $config ['username'], $config ['password'], $config ['DBname'] );
 

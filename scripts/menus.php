@@ -1,9 +1,12 @@
 <?php
-$conn = require (__DIR__ . "/connection.php");
-function peopleMenu($id) {
-	$query = $conn->prepare( "SELECT * FROM people where id=?" );
-	$query->bind_param( 'i', $id );
+function peopleMenu() {
+	$conn = require (__DIR__ . "/connection.php");
+	$query = $conn->prepare( "SELECT name FROM people" );
 	$query->execute();
-	$result = $query->get_result()->fetch_assoc();
-	echo ($result);
+	$id = 1;
+	$result = $query->get_result();
+	while ($value = mysqli_fetch_array($result)) {
+		echo "<a href='/people.php?id=" . $id . "'>" . $value[0] . "</a><br />";
+		$id++;
+	}
 }

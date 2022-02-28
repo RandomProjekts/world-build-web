@@ -6,10 +6,10 @@
 	if (isset( $_GET ['id'] )) {
 		$id = $_GET ['id'];
 	} else {
-		echo ("no person selected");
+		# echo ("no person selected");
 		echo ("<title>People</title>");
 		require (__DIR__ . "/scripts/menus.php");
-		peopleMenu($id);
+		peopleMenu();
 		exit();
 	}
 
