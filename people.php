@@ -2,7 +2,7 @@
 <html>
 <head>
 	<?php
-	$conn = require (__DIR__ . "/connection.php");
+	$conn = require (__DIR__ . "/script/connection.php");
 	if (isset( $_GET ['id'] )) {
 		$id = $_GET ['id'];
 	} else {
