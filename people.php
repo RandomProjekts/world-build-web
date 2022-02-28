@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 <html>
-
 <head>
 	<?php
-	$conn = require(__DIR__ . "/connection.php");
-	if (isset($_GET['id'])) {
-		$id = $_GET['id'];
+	$conn = require (__DIR__ . "/connection.php");
+	if (isset( $_GET ['id'] )) {
+		$id = $_GET ['id'];
 	} else {
 		echo ("no person selected");
 		echo ("<title>People</title>");
@@ -12,28 +12,28 @@
 	}
 
 	// Query
-	$query = $conn->prepare("SELECT * FROM people where id=?");
-	$query->bind_param('i', $id);
+	$query = $conn->prepare( "SELECT * FROM people where id=?" );
+	$query->bind_param( 'i', $id );
 	$query->execute();
 	$result = $query->get_result()->fetch_assoc();
 
-	if (empty($result)) {
+	if (empty( $result )) {
 		echo ("Does not exist");
 		echo ("<title>People</title>");
 		exit();
 	}
 
 	?>
-	<title><?php echo ($result['name']); ?> - People</title>
-	<meta charset="utf-8">
+	<title><?=$result['name']?> - People</title>
+<meta charset="utf-8">
 	<?php
-		if (file_exists("../img/" . $result['name'] . "_icon.jpg")) {
-			$b64img = base64_encode(file_get_contents("../img/" . $result['name'] . "_icon.jpg"));
-			echo ("<link rel='icon' href='data:image/png;base64,$b64img'>");
-		}
-		?>
+	if (file_exists( "./img/" . $result ['name'] . "_icon.jpg" )) {
+		echo ("<link rel='icon' href='./img/" . $result ['name'] . "_icon.jpg'>");
+	}
+	?>
 	<link rel="stylesheet" href="./css/people.css">
-	<link rel="stylesheet" href="./css/peopleSmall.css" media="all and (max-aspect-ratio: 3/5)">
+<link rel="stylesheet" href="./css/peopleSmall.css"
+	media="all and (max-aspect-ratio: 3/5)">
 </head>
 
 <body>
@@ -44,13 +44,12 @@
 		</caption>
 
 		<?php
-		$imgpath = "../img/" . $result['name'] . ".jpg";
-		if (file_exists($imgpath)) {
-			$b64img = base64_encode(file_get_contents($imgpath));
+		$imgpath = "./img/" . $result ['name'] . ".jpg";
+		if (file_exists( $imgpath )) {
 			echo ("
 		                <tr>
 		                    <th>Appearance</th>
-		                    <td><img src='data:image/png;base64,$b64img'></img></td>
+		                    <td><img src='$imgpath'></img></td>
 		                </tr>
 		                ");
 		}
@@ -58,23 +57,46 @@
 		<tr>
 			<th>Gender</th>
 			<td><?php
-				if ($result['gender'] == 'f') {
-					echo ("Female");
-				} elseif ($result['gender'] == 'm') {
-					echo ("Male");
-				}
+			if ($result ['gender'] == 'f') {
+				echo ("Female");
+			} elseif ($result ['gender'] == 'm') {
+				echo ("Male");
+			}
 
-				?>
+			?>
 			</td>
 		</tr>
+		
 			<?php
-			if (!empty($result['age'])) {
-				echo ("
-				<tr>
-		                	<th>Age</th>
-		                	<td>" . $result['age'] . " Years</td>
-				</tr>
-				");
+			if ((! empty( $result ['birth-day'] )) && (! empty( $result ['birth-year'] ))) {
+				echo ("<tr>
+		                <th>Birthday</th>
+		                <td>" . $result ['birth-day'] . ". " . $result ['birth-year'] . "</td>
+				</tr>");
+			}
+			?>
+			<?php
+			if (! empty( $result ['weight'] )) {
+				echo ("<tr>
+		                <th>Weight</th>
+		                <td>" . $result ['weight'] . " kg</td>
+				</tr>");
+			}
+			?>	
+			<?php
+			if (! empty( $result ['story'] )) {
+				echo ("<tr>
+		                <th>Story</th>
+		                <td>" . $result ['story'] . "</td>
+				</tr>");
+			}
+			?>
+			<?php
+			if ((! empty( $result ['bust'] )) && (! empty( $result ['waist'] )) && (! empty( $result ['hip'] ))) {
+				echo ("<tr>
+		                <th>Sizes</th>
+		                <td>" . $result ['bust'] . " | " . $result ['waist'] . " | " . $result ['hip'] . " cm</td>
+				</tr>");
 			}
 			?>
 		
@@ -83,15 +105,15 @@
 
 <?php
 // Main color of color sheme (appearance image) and version with alpha = 0
-if (file_exists($imgpath)) {
-	include_once(__DIR__ . "/scripts/themecolor.php");
-	if (empty($result['themecolor'])) {
-		$themecolor = findthemecolor(__DIR__ . "/" . $imgpath); // imgpath adjusted for colorextract script
+if (file_exists( $imgpath )) {
+	include_once (__DIR__ . "/scripts/themecolor.php");
+	if (empty( $result ['themecolor'] )) {
+		$themecolor = findthemecolor( __DIR__ . "/" . $imgpath ); // imgpath adjusted for colorextract script
 	} else {
-		$themecolor = adjustlightness($result['themecolor']);
+		$themecolor = adjustlightness( $result ['themecolor'] );
 	}
 
-	if (!empty($themecolor)) {
+	if (! empty( $themecolor )) {
 		echo ("
 	<style>
 		:root {
