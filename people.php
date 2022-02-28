@@ -2,12 +2,14 @@
 <html>
 <head>
 	<?php
-	$conn = require (__DIR__ . "/script/connection.php");
+	$conn = require (__DIR__ . "/scripts/connection.php");
 	if (isset( $_GET ['id'] )) {
 		$id = $_GET ['id'];
 	} else {
 		echo ("no person selected");
 		echo ("<title>People</title>");
+		require (__DIR__ . "/scripts/menus.php");
+		peopleMenu($id);
 		exit();
 	}
 
