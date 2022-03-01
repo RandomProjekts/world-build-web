@@ -87,6 +87,14 @@
 		                <td>" . $result ['weight'] . " kg</td>
 				</tr>");
 			}
+			?>
+			<?php
+			if (! empty( $result ['height'] )) {
+				echo ("<tr>
+		                <th>Height</th>
+		                <td>" . $result ['height'] . " m</td>
+				</tr>");
+			}
 			?>	
 			<?php
 			if (! empty( $result ['story'] )) {
