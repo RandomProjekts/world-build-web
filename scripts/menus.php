@@ -6,7 +6,13 @@ function peopleMenu() {
 	$id = 1;
 	$result = $query->get_result();
 	while ($value = mysqli_fetch_array($result)) {
-		echo "<a href='/people.php?id=" . $id . "'>" . $value[0] . "</a><br />";
+		echo "<img src='/img/";
+		if (file_exists( $_SERVER['DOCUMENT_ROOT'] . "/img/" . $value[0] . "_icon.png" )) {
+			 echo $value[0]; 
+		} else {
+			echo "default";
+		}
+		echo "_icon.png'></img><a href='/people.php?id=" . $id . "'>" . $value[0] . "</a><br />";
 		$id++;
 	}
 }
