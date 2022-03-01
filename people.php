@@ -7,7 +7,10 @@
 		$id = $_GET ['id'];
 	} else {
 		# echo ("no person selected");
-		echo ("<title>People</title>");
+		echo ("
+				<title>People</title>
+				<link rel='icon' href='./img/default_icon.png'>
+			");
 		require (__DIR__ . "/scripts/menus.php");
 		peopleMenu();
 		exit();
