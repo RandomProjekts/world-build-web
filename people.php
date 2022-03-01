@@ -61,6 +61,8 @@
 				echo ("Female");
 			} elseif ($result ['gender'] == 'm') {
 				echo ("Male");
+			} elseif ($result ['gender'] == 'd') {
+				echo ("Non-Binary");
 			}
 
 			?>
