@@ -2,12 +2,17 @@
 <html>
 <head>
 	<?php
-	$conn = require (__DIR__ . "/connection.php");
+	$conn = require (__DIR__ . "/scripts/connection.php");
 	if (isset( $_GET ['id'] )) {
 		$id = $_GET ['id'];
 	} else {
-		echo ("no person selected");
-		echo ("<title>People</title>");
+		# echo ("no person selected");
+		echo ("
+				<title>People</title>
+				<link rel='icon' href='./img/default_icon.png'>
+			");
+		require (__DIR__ . "/scripts/menus.php");
+		peopleMenu();
 		exit();
 	}
 
@@ -82,6 +87,14 @@
 				echo ("<tr>
 		                <th>Weight</th>
 		                <td>" . $result ['weight'] . " kg</td>
+				</tr>");
+			}
+			?>
+			<?php
+			if (! empty( $result ['height'] )) {
+				echo ("<tr>
+		                <th>Height</th>
+		                <td>" . $result ['height'] . " m</td>
 				</tr>");
 			}
 			?>	
