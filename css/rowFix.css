@@ -1,0 +1,10 @@
+tr:first-child {padding: 0; height: 0}
+
+@media all and (max-aspect-ratio: 3/5) {
+    tr:first-child {padding: 1% 0; height: auto}
+
+    tr:first-child td {
+        display: flex;
+        justify-content: center;
+    }
+}

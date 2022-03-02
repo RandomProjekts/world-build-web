@@ -16,6 +16,12 @@ td {
     padding-left: 3%;
     width: 94%;
 }
+
+table img {
+    max-width: 60%;
+    position: relative;
+    margin: 0;
+}
   
 td.shorten {
     max-height: 50vw;

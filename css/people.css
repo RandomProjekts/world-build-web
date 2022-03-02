@@ -42,8 +42,10 @@ td {
   width: 100%;
 }
 
-td img {
-  max-width: 100%;
+table img {
+  max-width: 20%;
+  position: absolute;
+  margin-left: 75%;
 }
 
 td.shorten {
@@ -63,4 +65,34 @@ td.shorten::before {
 tr:nth-child(2n) td.shorten::before {
   background: linear-gradient(to top, #f5f5f5 0%, #f5f5f500 30%);
   background: linear-gradient(to top, var(--rowcolor) 0%, var(--rowcolor-transparent) 30%);
+}
+
+tr.aside {
+  width: 77%;
+}
+
+tr.aside th {
+  flex-basis: 19.6%;
+  padding-left: 3.8%
+}
+
+tr.aside td {
+  flex-basis: 80.4%;
+}
+
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000bb;
+}
+
+#popup img {
+  max-width: 90vw;
+  max-height: 90vh;
 }
