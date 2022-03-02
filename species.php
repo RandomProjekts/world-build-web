@@ -1,6 +1,6 @@
 <html>
 	<?php
-	$conn = require ("./connection.php");
+	$conn = require ("scripts/connection.php");
 	$conn->close ();
 	?> 
 	<head>
