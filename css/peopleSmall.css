@@ -31,3 +31,16 @@ td.shorten::before {
     width: 90%;
     height: calc(50vw + 1px)
 }
+
+tr.aside {
+    width: 100%;
+}
+
+tr.aside th {
+    flex-basis: 15%;
+    padding-left: 3%;
+}
+
+tr.aside td {
+    flex-basis: 85%;
+}
