@@ -28,12 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		rows.forEach((tr) => {
 			/* 0.2176 is calculated as follows:
 			   The image height is 4/3 of the width
-			   which is 20% of its parent's
-			   which is 85% of its parent's
-			   which is 100% of its parent's
-			   which is 96% of its parent's
+			   (image) which is 22.33% of its parent's
+			   (td) which is 85% of its parent's
+			   (tr) which is 100% of its parent's
+			   (table) which is 86% of its parent's
 			   which is the width of the document (see stylesheets)
-			   -> (4/3) * 0.2 * 0.85 * 1 * 0.96 = 0.2176 */
+			   -> (4/3) * 0.2233 * 0.85 * 1 * 0.86 = 0.2176 */
 			if (tr.offsetTop - firstTrOffsetTop < (0.2176 * document.documentElement.clientWidth)) {
 				tr.classList.add("aside");
 			}
