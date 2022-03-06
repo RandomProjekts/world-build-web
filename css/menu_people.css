@@ -1,0 +1,40 @@
+body {
+    font-family: 'Libre Baskerville', serif;
+}
+
+section {
+    width: 86%;
+    margin: 7%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+section a {
+    flex: 0 0 15%;
+    margin: 2vw 4%;
+    text-align: center;
+    background-color: #f5f5f5;
+    border: 0.4vw solid #f5f5f5;
+    text-decoration: none;
+    color: purple;
+    font-size: 1.5vw;
+}
+
+img {
+    width: 100%;
+    background-color: white;
+}
+
+@media all and (max-aspect-ratio: 3/5) {
+    section {
+        margin-top: 13%;
+    }
+    
+    section a {
+        flex-basis: 35%;
+        margin-bottom: 4vw;
+        border-width: 1vw;
+        font-size: 4vw;
+    }
+}

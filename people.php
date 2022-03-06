@@ -11,7 +11,11 @@
 		echo ("
 					<title>People</title>
 					<link rel='icon' href='./img/default_icon.png'>
-				");
+					<link rel='preconnect' href='https://fonts.googleapis.com'>
+					<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+					<link href='https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap' rel='stylesheet'>
+					<link rel='stylesheet' href='/css/menu_people.css'>
+					");
 		require(__DIR__ . "/scripts/menus.php");
 		peopleMenu();
 		exit();
@@ -37,6 +41,7 @@
 		echo ("<link rel='icon' href='./img/" . $result['name'] . "_icon.jpg'>");
 	}
 	?>
+	<!-- load fonts from google fonts api -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
