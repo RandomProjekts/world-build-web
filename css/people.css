@@ -6,16 +6,19 @@
 body {
   margin: 0;
   width: 100%;
+  font-family: 'Libre Baskerville', serif;
 }
 
 h1 {
-  font-size: 3vw;
+  font-size: 3.5vw;
   padding-top: 2vw;
+  margin: 1vw 0 2vw 0;
+  font-family: 'Great Vibes', sans-serif;
 }
 
 table {
-  width: 96%;
-  margin-left: 2%;
+  width: 86%;
+  margin-left: 7%;
 }
 
 tr {
@@ -43,9 +46,9 @@ td {
 }
 
 table img {
-  max-width: 20%;
+  max-width: 22.33%;
   position: absolute;
-  margin-left: 75%;
+  margin-left: 63%;
 }
 
 td.shorten {
@@ -68,16 +71,16 @@ tr:nth-child(2n) td.shorten::before {
 }
 
 tr.aside {
-  width: 77%;
+  width: 70%;
 }
 
 tr.aside th {
-  flex-basis: 19.6%;
-  padding-left: 3.8%
+  flex-basis: 22%;
+  padding-left: 4.2%
 }
 
 tr.aside td {
-  flex-basis: 80.4%;
+  flex-basis: 78%;
 }
 
 #popup {
