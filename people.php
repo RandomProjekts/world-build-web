@@ -51,7 +51,7 @@
 </head>
 
 <body>
-
+	<a href="people.php">Back to TOC</a>
 	<table role="main">
 		<caption>
 			<h1><?php echo ($result['name']); ?></h1>
@@ -125,6 +125,7 @@
 		?>
 
 	</table>
+	<a href="people.php?id=<?= $id-1 ?>">prev</a><a href="people.php?id=<?= $id+1?>">next</a>
 </body>
 
 <?php
