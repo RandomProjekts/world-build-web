@@ -93,7 +93,7 @@
 		if (!empty($result['weight'])) {
 			echo ("<tr>
 			                <th>Weight</th>
-			                <td>$result[weight] kg</td>
+			                <td>$result[weight]&nbsp;kg</td>
 					</tr>");
 		}
 		?>
@@ -101,7 +101,7 @@
 		if (!empty($result['height'])) {
 			echo ("<tr>
 			                <th>Height</th>
-			                <td>$result[height] m</td>
+			                <td>$result[height]&nbsp;m</td>
 					</tr>");
 		}
 		?>
@@ -117,7 +117,7 @@
 		if ((!empty($result['bust'])) && (!empty($result['waist'])) && (!empty($result['hip']))) {
 			echo ("<tr>
 			                <th>Sizes</th>
-			                <td>$result[bust] | $result[waist] | $result[hip] cm</td>
+			                <td>$result[bust] | $result[waist] | $result[hip]&nbsp;cm</td>
 					</tr>");
 		}
 		?>
