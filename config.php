@@ -8,4 +8,3 @@ return array(
 'password' => 'password',
 'DBname' => 'worldDB',
 );
-?>
