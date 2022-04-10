@@ -3,7 +3,7 @@
 
 <head>
 	<?php
-	$conn = require_once (__DIR__ . "/scripts/connection.php");
+	$conn = require (__DIR__ . "/scripts/connection.php");
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 	} else {
@@ -14,7 +14,7 @@
 					<link rel='stylesheet' href='./css/fonts.css'>
 					<link rel='stylesheet' href='/css/menu_people.css'>
 					";
-		require (__DIR__ . "/scripts/menus.php");
+		require_once (__DIR__ . "/scripts/menus.php");
 		peopleMenu();
 		exit();
 	}
@@ -127,7 +127,7 @@
 <?php
 // Main color of color sheme (appearance image) and version with alpha = 0
 if (file_exists($imgpath)) {
-	include_once (__DIR__ . "/scripts/themecolor.php");
+	require_once (__DIR__ . "/scripts/themecolor.php");
 	if (empty($result['themecolor'])) {
 		$themecolor = findthemecolor(__DIR__ . "/" . $imgpath); // imgpath adjusted for colorextract script
 	} else {
