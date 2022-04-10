@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 	<?php
 	$conn = require ("scripts/connection.php");
