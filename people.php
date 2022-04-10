@@ -142,7 +142,7 @@ if (file_exists($imgpath)) {
 	<style>
 		:root {
 			--rowcolor: $themecolor;
-			--rowcolor-transparent: $themecolor&nbsp;00;
+			--rowcolor-transparent: " . $themecolor . "00;
 		}
 	</style>
 	";
