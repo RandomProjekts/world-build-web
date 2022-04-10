@@ -3,19 +3,19 @@
 
 <head>
 	<?php
-	$conn = require (__DIR__ . "/scripts/connection.php");
+	$conn = require_once (__DIR__ . "/scripts/connection.php");
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 	} else {
 		# echo ("no person selected");
-		echo ("
+		echo "
 					<title>People</title>
 					<link rel='icon' href='./img/default_icon.png'>
 					<link rel='preconnect' href='https://fonts.googleapis.com'>
 					<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
 					<link href='https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap' rel='stylesheet'>
 					<link rel='stylesheet' href='/css/menu_people.css'>
-					");
+					";
 		require (__DIR__ . "/scripts/menus.php");
 		peopleMenu();
 		exit();
@@ -28,8 +28,8 @@
 	$result = $query->get_result()->fetch_assoc();
 
 	if (empty($result)) {
-		echo ("Does not exist");
-		echo ("<title>People</title>");
+		echo "Does not exist";
+		echo "<title>People</title>";
 		exit();
 	}
 
@@ -37,8 +37,8 @@
 	<title><?= $result['name'] ?> - People</title>
 <meta charset="utf-8">
 	<?php
-	if (file_exists("./img/" . $result['name'] . "_icon.png")) {
-		echo ("<link rel='icon' href='./img/" . $result['name'] . "_icon.png'>");
+	if (file_exists("./img/$result[name]_icon.png")) {
+		echo "<link rel='icon' href='./img/$result[name]_icon.png'>";
 	}
 	?>
 	<!-- load fonts from google fonts api -->
@@ -57,29 +57,29 @@
 	<a href="people.php">Back to TOC</a>
 	<table role="main">
 		<caption>
-			<h1><?php echo ($result['name']); ?></h1>
+			<h1><?=$result['name']?></h1>
 		</caption>
 
 		<?php
-		$imgpath = "./img/" . $result['name'] . ".jpg";
+		$imgpath = "./img/$result[name].jpg";
 		if (file_exists($imgpath)) {
-			echo ("<link rel='stylesheet' href='./css/rowFix.css'>");
-			echo ("
+			echo "<link rel='stylesheet' href='./css/rowFix.css'>";
+			echo "
 			                <tr>
 			                    <td><img src='$imgpath'></img></td>
 			                </tr>
-			                ");
+			                ";
 		}
 		?>
 		<tr>
 			<th>Gender</th>
 			<td><?php
 			if ($result['gender'] == 'f') {
-				echo ("Female");
+				echo 'Female';
 			} elseif ($result['gender'] == 'm') {
-				echo ("Male");
+				echo 'Male';
 			} elseif ($result['gender'] == 'd') {
-				echo ("Non-Binary");
+				echo 'Non-Binary';
 			}
 
 			?>
@@ -98,7 +98,7 @@
 		if (!empty($result['weight'])) {
 			echo ("<tr>
 			                <th>Weight</th>
-			                <td>" . $result['weight'] . " kg</td>
+			                <td>$result[weight] kg</td>
 					</tr>");
 		}
 		?>
@@ -106,7 +106,7 @@
 		if (!empty($result['height'])) {
 			echo ("<tr>
 			                <th>Height</th>
-			                <td>" . $result['height'] . " m</td>
+			                <td>$result[height] m</td>
 					</tr>");
 		}
 		?>
@@ -114,7 +114,7 @@
 		if (!empty($result['story'])) {
 			echo ("<tr>
 			                <th>Story</th>
-			                <td>" . $result['story'] . "</td>
+			                <td>$result[story]</td>
 					</tr>");
 		}
 		?>
@@ -122,7 +122,7 @@
 		if ((!empty($result['bust'])) && (!empty($result['waist'])) && (!empty($result['hip']))) {
 			echo ("<tr>
 			                <th>Sizes</th>
-			                <td>" . $result['bust'] . " | " . $result['waist'] . " | " . $result['hip'] . " cm</td>
+			                <td>$result[bust] | $result[waist] | $result[hip] cm</td>
 					</tr>");
 		}
 		?>
@@ -143,14 +143,14 @@ if (file_exists($imgpath)) {
 	}
 
 	if (!empty($themecolor)) {
-		echo ("
+		echo "
 	<style>
 		:root {
-			--rowcolor: " . $themecolor . ";
-			--rowcolor-transparent: " . $themecolor . "00;
+			--rowcolor: $themecolor;
+			--rowcolor-transparent: $themecolor&nbsp;00;
 		}
 	</style>
-	");
+	";
 	}
 }
 
