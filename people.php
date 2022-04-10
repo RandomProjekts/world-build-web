@@ -66,11 +66,14 @@
 		<tr>
 			<th>Gender</th>
 			<td><?php
-			if ($result['gender'] == 'f') {
+			switch ($result['gender']) {
+				case 'f':
 				echo 'Female';
-			} elseif ($result['gender'] == 'm') {
+				break;
+				case 'm':
 				echo 'Male';
-			} elseif ($result['gender'] == 'd') {
+				break;
+				case 'd':
 				echo 'Non-Binary';
 			}
 
