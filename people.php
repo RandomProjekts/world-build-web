@@ -3,7 +3,7 @@
 
 <head>
 	<?php
-	$conn = require(__DIR__ . "/scripts/connection.php");
+	$conn = require (__DIR__ . "/scripts/connection.php");
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 	} else {
@@ -16,7 +16,7 @@
 					<link href='https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap' rel='stylesheet'>
 					<link rel='stylesheet' href='/css/menu_people.css'>
 					");
-		require(__DIR__ . "/scripts/menus.php");
+		require (__DIR__ . "/scripts/menus.php");
 		peopleMenu();
 		exit();
 	}
@@ -35,19 +35,22 @@
 
 	?>
 	<title><?= $result['name'] ?> - People</title>
-	<meta charset="utf-8">
+<meta charset="utf-8">
 	<?php
 	if (file_exists("./img/" . $result['name'] . "_icon.png")) {
 		echo ("<link rel='icon' href='./img/" . $result['name'] . "_icon.png'>");
 	}
 	?>
 	<!-- load fonts from google fonts api -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./css/people.css">
-	<link rel="stylesheet" href="./css/peopleSmall.css" media="all and (max-aspect-ratio: 3/5)">
-	<script src="/scripts/people_styling.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="./css/people.css">
+<link rel="stylesheet" href="./css/peopleSmall.css"
+	media="all and (max-aspect-ratio: 3/5)">
+<script src="/scripts/people_styling.js"></script>
 </head>
 
 <body>
@@ -71,15 +74,15 @@
 		<tr>
 			<th>Gender</th>
 			<td><?php
-				if ($result['gender'] == 'f') {
-					echo ("Female");
-				} elseif ($result['gender'] == 'm') {
-					echo ("Male");
-				} elseif ($result['gender'] == 'd') {
-					echo ("Non-Binary");
-				}
+			if ($result['gender'] == 'f') {
+				echo ("Female");
+			} elseif ($result['gender'] == 'm') {
+				echo ("Male");
+			} elseif ($result['gender'] == 'd') {
+				echo ("Non-Binary");
+			}
 
-				?>
+			?>
 			</td>
 		</tr>
 
@@ -125,13 +128,14 @@
 		?>
 
 	</table>
-	<a href="people.php?id=<?= $id-1 ?>">prev</a><a href="people.php?id=<?= $id+1?>">next</a>
+	<a href="people.php?id=<?= $id-1 ?>">prev</a>
+	<a href="people.php?id=<?= $id+1?>">next</a>
 </body>
 
 <?php
 // Main color of color sheme (appearance image) and version with alpha = 0
 if (file_exists($imgpath)) {
-	include_once(__DIR__ . "/scripts/themecolor.php");
+	include_once (__DIR__ . "/scripts/themecolor.php");
 	if (empty($result['themecolor'])) {
 		$themecolor = findthemecolor(__DIR__ . "/" . $imgpath); // imgpath adjusted for colorextract script
 	} else {
