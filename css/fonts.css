@@ -1,0 +1,9 @@
+@font-face {
+  font-family: Titles;
+  src: url(../fonts/titles.ttf);
+}
+
+@font-face {
+  font-family: Body;
+  src: url(../fonts/body.ttf);
+}
