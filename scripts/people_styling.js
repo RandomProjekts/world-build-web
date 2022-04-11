@@ -9,7 +9,7 @@ function displayImage(img) {
 	document.body.insertBefore(div, document.body.firstChild);
 	img.style.display = "none"; // hide original image
 	div.addEventListener("click", () => {
-		document.body.removeChild(div)
+		document.body.removeChild(div);
 		img.style.display = "unset";
 	});
 }
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			td.classList.add("shorten");
 			// toggle full content or preview on click
 			td.addEventListener("click", (e) => {
-				var v = e.target
+				var v = e.target;
 				while (v.tagName != "TD") {
 					v = v.parentNode;
 				}
