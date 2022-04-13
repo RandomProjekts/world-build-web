@@ -16,6 +16,10 @@ h1 {
   font-family: 'Titles', sans-serif;
 }
 
+.centered {
+	text-align: center;
+}
+
 table {
   width: 86%;
   margin-left: 7%;

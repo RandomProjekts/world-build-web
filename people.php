@@ -47,11 +47,10 @@
 
 <body>
 	<a href="people.php">Back to TOC</a>
+	
+	<h1 class="centered"><?=$result['name']?></h1>
+	
 	<table role="main">
-		<caption>
-			<h1><?=$result['name']?></h1>
-		</caption>
-
 		<?php
 		$imgpath = "./img/$result[name].jpg";
 		if (file_exists($imgpath)) {
