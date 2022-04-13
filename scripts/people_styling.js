@@ -6,7 +6,7 @@ function displayImage(img) {
 	copy.src = img.src;
 	div.id = "popup";
 	div.appendChild(copy);
-	document.body.insertBefore(div, document.body.firstChild);
+	document.body.prepend(div);
 	img.style.display = "none"; // hide original image
 	div.addEventListener("click", () => {
 		document.body.removeChild(div);
