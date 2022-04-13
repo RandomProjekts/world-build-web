@@ -40,16 +40,17 @@
 	}
 	?>
 	<link rel="stylesheet" href="./css/fonts.css">
-	<link rel="stylesheet" href="./css/people.css">
-	<link rel="stylesheet" href="./css/peopleSmall.css" media="all and (max-aspect-ratio: 3/5)">
-	<script src="/scripts/people_styling.js"></script>
+<link rel="stylesheet" href="./css/people.css">
+<link rel="stylesheet" href="./css/peopleSmall.css"
+	media="all and (max-aspect-ratio: 3/5)">
+<script src="/scripts/people_styling.js"></script>
 </head>
 
 <body>
 	<a href="people.php">Back to TOC</a>
-	
+
 	<h1 class="centered"><?=$result['name']?></h1>
-	
+
 	<table role="main">
 		<?php
 		$imgpath = "./img/$result[name].jpg";
@@ -66,14 +67,14 @@
 			<th>Gender</th>
 			<td><?php
 			switch ($result['gender']) {
-				case 'f':
-				echo 'Female';
-				break;
-				case 'm':
-				echo 'Male';
-				break;
-				case 'd':
-				echo 'Non-Binary';
+				case 'f' :
+					echo 'Female';
+					break;
+				case 'm' :
+					echo 'Male';
+					break;
+				case 'd' :
+					echo 'Non-Binary';
 			}
 
 			?>
@@ -123,13 +124,13 @@
 
 	</table>
 	<a href="people.php?id=<?= $id-1 ?>">prev</a>
-	<a href="people.php?id=<?= $id+1?>">next</a>
+	<a href="people.php?id=<?= $id+1 ?>">next</a>
 </body>
 <?php
 // Main color of color sheme (appearance image) and version with alpha = 0
-if (file_exists($imgpath)) {
+//if (file_exists($imgpath)) {
 	require_once (__DIR__ . "/scripts/themecolor.php");
-	if (isset($result['themecolor'])) {	
+	if (isset($result['themecolor'])) {
 		$themecolor = adjustlightness($result['themecolor']);
 	} else {
 		$themecolor = findthemecolor(__DIR__ . "/" . $imgpath); // imgpath adjusted for colorextract script
@@ -145,9 +146,8 @@ if (file_exists($imgpath)) {
 	</style>
 	";
 	}
-}
+//}
 
 $conn->close();
 ?>
-
 </html>
