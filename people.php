@@ -25,7 +25,7 @@
 	$query->execute();
 	$result = $query->get_result()->fetch_assoc();
 
-	if (empty($result)) {
+	if (!isset($result)) {
 		echo "Does not exist";
 		echo "<title>People</title>";
 		exit();
@@ -82,7 +82,7 @@
 		</tr>
 
 		<?php
-		if ((!empty($result['birth-day'])) && (!empty($result['birth-year']))) {
+		if (isset($result['birth-day']) && isset($result['birth-year'])) {
 			echo ("<tr>
 			                <th>Birthday</th>
 			                <td>" . $result['birth-day'] . ". " . $result['birth-year'] . "</td>
@@ -90,7 +90,7 @@
 		}
 		?>
 		<?php
-		if (!empty($result['weight'])) {
+		if (isset($result['weight'])) {
 			echo ("<tr>
 			                <th>Weight</th>
 			                <td>$result[weight]&nbsp;kg</td>
@@ -98,7 +98,7 @@
 		}
 		?>
 		<?php
-		if (!empty($result['height'])) {
+		if (isset($result['height'])) {
 			echo ("<tr>
 			                <th>Height</th>
 			                <td>$result[height]&nbsp;m</td>
@@ -106,7 +106,7 @@
 		}
 		?>
 		<?php
-		if (!empty($result['story'])) {
+		if (isset($result['story'])) {
 			echo ("<tr>
 			                <th>Story</th>
 			                <td>$result[story]</td>
@@ -114,7 +114,7 @@
 		}
 		?>
 		<?php
-		if ((!empty($result['bust'])) && (!empty($result['waist'])) && (!empty($result['hip']))) {
+		if (isset($result['bust']) && isset($result['waist']) && isset($result['hip'])) {
 			echo ("<tr>
 			                <th>Sizes</th>
 			                <td>$result[bust] | $result[waist] | $result[hip]&nbsp;cm</td>
@@ -130,13 +130,13 @@
 // Main color of color sheme (appearance image) and version with alpha = 0
 if (file_exists($imgpath)) {
 	require_once (__DIR__ . "/scripts/themecolor.php");
-	if (empty($result['themecolor'])) {
-		$themecolor = findthemecolor(__DIR__ . "/" . $imgpath); // imgpath adjusted for colorextract script
-	} else {
+	if (isset($result['themecolor'])) {	
 		$themecolor = adjustlightness($result['themecolor']);
+	} else {
+		$themecolor = findthemecolor(__DIR__ . "/" . $imgpath); // imgpath adjusted for colorextract script
 	}
 
-	if (!empty($themecolor)) {
+	if (isset($themecolor)) {
 		echo "
 	<style>
 		:root {
