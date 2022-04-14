@@ -1,10 +1,10 @@
 <?php
-$config = require ($_SERVER['DOCUMENT_ROOT'] . "../config.php");
-// Create connection
-$conn = new mysqli ( $config ['servername'], $config ['username'], $config ['password'], $config ['DBname'] );
+/*
+ * this file is a wrapper for the Connection class defined in
+ * scripts/Connection.class.php
+ * usage [DEPRECATED]: $conn = require 'connection.php'
+ */
 
-// Check connection
-if ($conn->connect_error) {
-	die ( "Connection failed: " . $conn->connect_error );
-}
-return $conn;
+require_once 'Connection.class.php';
+$conn = new Connection();
+return $conn->getConection();
