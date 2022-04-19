@@ -5,8 +5,8 @@ This repo contains a website which displays all known data about our world build
 
 * Activate the gd extension for php in your php.ini
 
-* create a database
-worlddb
-├── people
-├── species
+* create a database  
+worlddb  
+├── people  
+├── species  
 ├── parent_of
