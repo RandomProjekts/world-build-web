@@ -7,4 +7,4 @@
 
 require_once 'Connection.class.php';
 $conn = new Connection();
-return $conn->getConection();
+return $conn->getConnection();

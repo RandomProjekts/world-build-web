@@ -3,7 +3,9 @@
 
 <head>
 	<?php
-	$conn = require (__DIR__ . "/scripts/connection.php");
+	require_once 'scripts/Connection.class.php';
+	$conn = (new Connection())->getConnection();
+	
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 	} else {
@@ -21,9 +23,8 @@
 
 	// Query
 	$query = $conn->prepare("SELECT * FROM people where id=?");
-	$query->bind_param('i', $id);
-	$query->execute();
-	$result = $query->get_result()->fetch_assoc();
+	$query->execute([$id]);
+	$result = $query->fetchAll()[0];
 
 	if (empty($result)) {
 		echo "Does not exist";
@@ -147,8 +148,6 @@ if (file_exists($imgpath)) {
 	";
 	}
 }
-
-$conn->close();
 ?>
 
 </html>
