@@ -10,17 +10,17 @@ class Connection {
 	public function __construct() {
 		if (!isset(self::$conn)) {
 			$config = require ($_SERVER['DOCUMENT_ROOT'] . '/../config.php');
+			try {
 			// Create connection
-			self::$conn = new mysqli($config['servername'], $config['username'], $config['password'], $config['DBname']);
-
+			self::$conn = new PDO("mysql:host=$config[servername];dbname=$config[DBname]", $config['username'], $config['password']);
 			// Check connection
-			if (self::$conn->connect_error) {
-				die('Connection failed: ' . self::$conn->connect_error);
+			} catch (Exception $e) {
+				die('Connection failed: ' . $e->getMessage());
 			}
 		}
 	}
 
-	public function getConection() {
+	public function getConnection() {
 		return self::$conn;
 	}
 

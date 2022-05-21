@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 	<?php
-	$conn = require ("scripts/connection.php");
-	$conn->close ();
+	require_once 'scripts/Connection.class.php';
+	$conn = (new Connection())->getConnection();
 	?> 
 	<head>
 		<title>Species</title>
