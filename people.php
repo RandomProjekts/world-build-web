@@ -20,11 +20,17 @@
 	}
 
 	// Query
-	$query = $conn->prepare("SELECT * FROM people where id=?");
+	$query = $conn->prepare("SELECT * FROM people where token=?");
 	$query->bind_param('i', $id);
 	$query->execute();
 	$result = $query->get_result()->fetch_assoc();
-
+	
+	$query = $conn->prepare("SELECT token, name FROM people WHERE (id > 2 OR id < 2) AND is_listed = 1 LIMIT 2");
+	//$query->bind_param('ii', $id, $id);
+	$query->execute();
+	$tokens = $query->get_result();
+	var_dump(mysqli_fetch_array($tokens));
+	
 	if (empty($result)) {
 		echo "Does not exist";
 		echo "<title>People</title>";
